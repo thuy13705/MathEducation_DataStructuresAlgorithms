@@ -62,9 +62,19 @@ Vector DivideVector(Vector a, float alpha)
 	}
 	return ans;
 }
+
 //Gan vector b cho vector a.
 void AssignVector(Vector &a, Vector b)
 {
 	for (int i = 0; i < a.n; i++)
 		a.vec[i] = b.vec[i];
+}
+
+//Ham in ra nghiem cua he phuong trinh.
+void PrintVector(Vector a)
+{
+	cout << a.vec[0];
+	for (int j = 1; j < a.n; j++)
+		if (a.vec[j] != 0)
+			cout << " + " << a.vec[j] << "t" << j;
 }

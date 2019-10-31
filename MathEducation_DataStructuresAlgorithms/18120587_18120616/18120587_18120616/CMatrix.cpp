@@ -392,17 +392,14 @@ int Matrix::SolveLinearEquationMatrix()
 					temp[i].n = an + 1;
 					AssignVector(temp[i], aV);
 				}
+				cout << "Nghiem cua he: " << endl;;
 				//neu dong nao bang 0 thi gan gia tri cua i bang t va in ra nghiem.
 				for (int i = n - 2; i > n - 2 - an; i--)
 				{
 					temp[i].vec[n - 2 - i + 1] = 1;
+					//In ra tung nghiem
 					cout << "x" << i + 1 << " = :";
-					cout << temp[i].vec[0];
-
-					//In ra nghiem
-					for (int j = 1; j < temp[i].n; j++)
-						if (temp[i].vec[j] != 0)
-							cout << " + " << temp[i].vec[j] << "t" << j;
+					PrintVector(temp[i]);
 					cout << endl;
 				}
 				//tim nghiem cua nhung dong khac 0
@@ -416,20 +413,15 @@ int Matrix::SolveLinearEquationMatrix()
 					for (int k = n - 2; k > i; k--)
 						t = SubVector(t, MultiplyVector(temp[k], a[i][k]));
 					temp[i] = DivideVector(t, a[i][i]);//tinh nghiem gan vao ma tran ket qua.
-					//cout << endl;
 					//in ra nghiem.
-					if (temp[i].vec[0] != 0)
-					{
-						cout << "x" << i + 1 << " = :";
-						cout << temp[i].vec[0];
-					}
-					for (int j = 1; j < temp[i].n; j++)
-						if (temp[i].vec[j] != 0)
-							cout << " + " << temp[i].vec[j] << "t" << j;
+					cout << "x" << i + 1 << " = :";
+					PrintVector(temp[i]);
 					cout << endl;
+
 				}
 				cout << endl;
 				return 1;
 			}
 
 }
+
