@@ -10,9 +10,6 @@ class Matrix
 private:
 	int m, n;//so dong, so cot cua ma tran.
 	float **a;//mang dong luu mang hai chieu
-private:
-	//Ham tim ma tran bac thang.
-	Matrix &EchelonMatrix();
 public:
 	//Phuong thuc khoi tao ma tran mac dinh.
 	Matrix();
@@ -32,6 +29,8 @@ public:
 public:
 	//Kiem tra co phai la ma tran vuong khong.
 	int checkSquareMatrix();
+	//Ham tim ma tran bac thang.
+	Matrix &EchelonMatrix();
 
 	//Ham nhap ma tran.
 	void GetArray();

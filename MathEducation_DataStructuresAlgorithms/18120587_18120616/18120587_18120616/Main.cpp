@@ -35,6 +35,7 @@ void BooleMenu() {
 
 		switch (option) {
 		case 1: {
+			cout << "Tim da thuc toi thieu cua ham bool:" << endl;
 			InputBooleArray(arrB);
 			MatchArray(arrB);
 			FinalBoole(arrB);
@@ -66,6 +67,7 @@ void VectorMenu()
 		switch (option)
 		{
 		case 1:
+			cout << "Cong hai vector:" << endl;
 			Vector vec1, vec2;
 			int n1;
 
@@ -76,6 +78,8 @@ void VectorMenu()
 			OutputVec(AddVector(vec1, vec2));
 			break;
 		case 2:
+			cout << "Nhan hai vector:" << endl;
+
 			Vector a;
 			float alpha;
 			int n2;
@@ -118,6 +122,7 @@ void MatrixMenu()
 		{
 		case 1:
 		{
+			cout << "Tinh dinh thuc cua ma tran: " << endl;
 			Matrix A;
 
 			cout << "Nhap ma tran: " << endl;
@@ -136,6 +141,7 @@ void MatrixMenu()
 		}
 		case 2:
 		{
+			cout << "Tim ma tran nghich dao: " << endl;
 			Matrix Inver;
 
 			cout << "Nhap ma tran: " << endl;
@@ -157,6 +163,7 @@ void MatrixMenu()
 		}
 		case 3:
 		{
+			cout << "Nhan hai ma tran:" << endl;
 			Matrix Mt1;
 
 			cout << "Nhap ma tran thu nhat: " << endl;
@@ -182,6 +189,7 @@ void MatrixMenu()
 		}
 		case 4:
 		{
+			cout << "Tim hang cua ma tran: " << endl;
 			Matrix rank;
 
 			cout << "Nhap ma tran : " << endl;
@@ -196,8 +204,10 @@ void MatrixMenu()
 		}
 		case 5:
 		{
+			cout << "Giai he phuong trinh tuyen tinh: " << endl;
+
 			Matrix hpt;
-			cout << "n phai lon hon 1." << endl;
+			cout << "so cot phai lon hon 1." << endl;
 			cout << "Nhap he phuong trinh can giai: " << endl;
 			hpt.GetArray();
 			cout << "He phuong trinh vua nhap :" << endl;

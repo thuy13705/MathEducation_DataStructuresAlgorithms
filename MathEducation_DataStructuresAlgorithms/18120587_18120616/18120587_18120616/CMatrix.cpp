@@ -1,5 +1,6 @@
 
 #include "HMatrix.h"
+#include "HVector.h"
 
 
 
@@ -107,8 +108,9 @@ void Matrix::GetArray()
 	for (int i = 0; i < m; i++)
 		for (int j = 0; j < n; j++)
 		{
-			cout << "a[" << i << "][" << j << "]=";
-			cin >> a[i][j];// = rand() % (100 + 1);
+			cout << "\ta[" << i << "][" << j << "]=";
+			cin >> a[i][j];
+			//a[i][j] = rand() % (100 + 1);
 		}
 }
 
@@ -118,7 +120,7 @@ void Matrix::PrintArray()
 	for (int i = 0; i < m; i++)//Duyet theo dong.
 	{
 		for (int j = 0; j < n; j++)//Duyet theo cot.
-			cout << a[i][j] << "\t";//In tung phan tu trong mang.
+			cout << "\t" << a[i][j];//In tung phan tu trong mang.
 		cout << endl;
 	}
 }
@@ -181,7 +183,7 @@ Matrix &Matrix::EchelonMatrix()
 		{
 			//Tim dong co phan tu khac 0 tai cot j.
 			int k = i + 1;
-			while (k < m && a[i][j] == 0)
+			while (k < m && a[k][j] == 0)
 			{
 				k++;
 			}
@@ -376,7 +378,7 @@ int Matrix::SolveLinearEquationMatrix()
 			//he phuong trinh co co so nghiem.
 			if (rankB < n - 1)
 			{
-				/*int an = n - rankB - 1;//so an cua he phuong trinh.
+				int an = n - rankB - 1;//so an cua he phuong trinh.
 				Vector aV;
 				aV.n = an + 1;
 				//Gan nghiem bang 0;
@@ -426,7 +428,7 @@ int Matrix::SolveLinearEquationMatrix()
 							cout << " + " << temp[i].vec[j] << "t" << j;
 					cout << endl;
 				}
-				cout << endl;*/
+				cout << endl;
 				return 1;
 			}
 
