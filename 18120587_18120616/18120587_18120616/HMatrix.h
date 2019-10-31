@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #include <iostream>
 #include <stdlib.h>
 #include <ctime>
@@ -11,27 +10,37 @@ class Matrix
 private:
 	int m, n;//so dong, so cot cua ma tran.
 	float **a;//mang dong luu mang hai chieu
-public:
-	//Khoi tao ma tran mac dinh.
-	Matrix();
-	//Ham khoi tao ma tran voi so dong so cot cho san.
-	Matrix(int sd, int sc);
-	//Ham sao chep tu mot ma tran khac.
-	Matrix(const Matrix &b);
-	//Ham huy.
-	~Matrix();
 private:
 	//Ham tim ma tran bac thang.
 	Matrix &EchelonMatrix();
 public:
+	//Phuong thuc khoi tao ma tran mac dinh.
+	Matrix();
+	//Phuong thuc khoi tao ma tran voi so dong so cot cho san.
+	Matrix(int sd, int sc);
+	//Phuong thuc khoi tao sao chep.
+	Matrix(const Matrix &b);
+
+	//Cac getter/setter.
+	int M();
+	int N();
+	void getM(int value);
+	void getN(int value);
+
+	//Phuong thuc huy
+	~Matrix();
+public:
 	//Kiem tra co phai la ma tran vuong khong.
 	int checkSquareMatrix();
-	//Ham gan voi mot ma tran cho truoc.
-	Matrix &operator=(const Matrix &b);
+
 	//Ham nhap ma tran.
 	void GetArray();
 	//Ham xuat ma tran
 	void PrintArray();
+
+	//Ham gan voi mot ma tran cho truoc.
+	Matrix &operator=(const Matrix &b);
+
 	//Ham tinh dinh thuc ma tran.
 	float DetMatrix();
 	//Tim ma tran nghich dao.
@@ -41,5 +50,5 @@ public:
 	//Tim hang ma tran.
 	int RankMatrix();
 	//Giai he phuong trinh tuyen tinh.
-	int EquationMatrix();
+	int SolveLinearEquationMatrix();
 };

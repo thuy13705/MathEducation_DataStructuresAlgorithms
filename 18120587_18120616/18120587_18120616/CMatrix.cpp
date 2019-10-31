@@ -1,7 +1,9 @@
-#include "HVector.h"
+
 #include "HMatrix.h"
 
 
+
+//------------Cai dat cac phuong thuc khoi tao.-------------------------
 //Ham khoi tao mac dinh.
 Matrix::Matrix()
 {
@@ -42,7 +44,27 @@ Matrix::Matrix(int sd, int sc)
 			a[i][j] = 0;
 }
 
-//Ham huy
+
+//------------Cai dat cac getter/setter.--------------------------------
+int Matrix::M()
+{
+	return m;
+}
+int Matrix::N()
+{
+	return n;
+}
+void Matrix::getM(int value)
+{
+	m = value;
+}
+void Matrix::getN(int value)
+{
+	n = value;
+}
+
+
+//-----------Cai dat phuong thuc huy -----------------------------------
 Matrix::~Matrix()
 {
 	//Giai phong bo nho khi khong su dung.
@@ -51,7 +73,8 @@ Matrix::~Matrix()
 	delete[]a;
 }
 
-//Kiem tra co phai la ma tran vuong khong.
+
+//-----------Kiem tra co phai la ma tran vuong khong.-------------------
 // 1: ma tran vuong
 // 0: khong phai ma tran vuong.
 int Matrix::checkSquareMatrix()
@@ -62,7 +85,46 @@ int Matrix::checkSquareMatrix()
 		return 1;
 }
 
-//Ham gan voi mot ma tran cho truoc.
+
+//-----------Cai dat ham nhap xuat--------------------------------------
+//Nhap ma tran.
+void Matrix::GetArray()
+{
+	//Nhap so dong, so cot cua ma tran.
+	do
+	{
+		cout << "Nhap so dong:";
+		cin >> m;
+		cout << "Nhap so cot:";
+		cin >> n;
+	} while (m <= 0 || n <= 0);
+	//Cap phat bo nho cho mang.
+	a = new float*[m];
+	for (int i = 0; i < m; i++)
+		a[i] = new float[n];
+	//srand(time(NULL));
+	//Nhap tung phan tu cua ma tran.
+	for (int i = 0; i < m; i++)
+		for (int j = 0; j < n; j++)
+		{
+			cout << "a[" << i << "][" << j << "]=";
+			cin >> a[i][j];// = rand() % (100 + 1);
+		}
+}
+
+//In ma tran vua nhap.
+void Matrix::PrintArray()
+{
+	for (int i = 0; i < m; i++)//Duyet theo dong.
+	{
+		for (int j = 0; j < n; j++)//Duyet theo cot.
+			cout << a[i][j] << "\t";//In tung phan tu trong mang.
+		cout << endl;
+	}
+}
+
+
+//------------Ham gan voi mot ma tran cho truoc.------------------------
 Matrix &Matrix::operator=(const Matrix &b)
 {
 	//Kiem tra xem vung nho can gan co trung khong.
@@ -91,7 +153,8 @@ Matrix &Matrix::operator=(const Matrix &b)
 
 }
 
-//Tim ma tran bac thang.
+
+//--------------Tim ma tran bac thang.----------------------------------
 Matrix &Matrix::EchelonMatrix()
 {
 	int i = 0, j = 0;//Gan gia tri bat dau.
@@ -136,43 +199,8 @@ Matrix &Matrix::EchelonMatrix()
 	return *this;
 }
 
-//Nhap ma tran.
-void Matrix::GetArray()
-{
-	//Nhap so dong, so cot cua ma tran.
-	do
-	{
-		cout << "Nhap so dong:";
-		cin >> m;
-		cout << "Nhap so cot:";
-		cin >> n;
-	} while (m <= 0 || n <= 0);
-	//Cap phat bo nho cho mang.
-	a = new float*[m];
-	for (int i = 0; i < m; i++)
-		a[i] = new float[n];
-	//srand(time(NULL));
-	//Nhap tung phan tu cua ma tran.
-	for (int i = 0; i < m; i++)
-		for (int j = 0; j < n; j++)
-		{
-			cout << "a[" << i << "][" << j << "]=";
-			cin >> a[i][j];// = rand() % (100 + 1);
-		}
-}
 
-//In ma tran vua nhap.
-void Matrix::PrintArray()
-{
-	for (int i = 0; i < m; i++)//Duyet theo dong.
-	{
-		for (int j = 0; j < n; j++)//Duyet theo cot.
-			cout << a[i][j] << "\t";//In tung phan tu trong mang.
-		cout << endl;
-	}
-}
-
-//Tim dinh thuc ma tran.
+//-----------Tim dinh thuc ma tran.-------------------------------------
 //Chuyen ma tran ve bac thang roi tinh theo duong cheo chinh.
 float Matrix::DetMatrix()
 {
@@ -219,41 +247,7 @@ float Matrix::DetMatrix()
 }
 
 
-//Nhan hai ma tran.
-Matrix Matrix::MultiplyMatrix(const Matrix &b)
-{
-	//Khoi tao ma tran luu giu ket qua.
-	Matrix c(m, b.n);
-	for (int i = 0; i < m; i++)//Duyet tung dong trong phan tu moi.
-		for (int j = 0; j < b.n; j++)//Duyet tung cot.
-			for (int k = 0; k < n; k++)//Duyet so luong phan tu tren dong i, cot j.
-				//Gia tri tai vi tri can tinh bang tong tung phan tu tren hang nhan voi cot kia.
-				c.a[i][j] += a[i][k] * b.a[k][j];
-	return c;//Tra ve ma tran can tinh.
-}
-
-//Hang ma tran.
-int Matrix::RankMatrix()
-{
-	Matrix c;
-	c = this->EchelonMatrix();//Gan mang de khong lam thay doi cac gia tri trong mang.
-	int count = 0;//Bien de tinh hang ma tran.
-	for (int i = 0; i < m; i++)//Duyet tung dong.
-	{
-		//Kiem tra dong nao khac 0.
-		bool t = false;//Gan cho dong do deu bang 0.
-		for (int j = 0; j < n; j++)//duyet tung phan tu tren dong.
-			//Neu co gia tri khac 0 se gan t=true.
-			if (c.a[i][j] != 0)
-				t = true;
-		//Neu khac 0 thi tang bien dem count.
-		if (t == true)
-			count++;
-	}
-	return count;//Tra ve hang  cua ma tran.
-}
-
-//Ma tran nghich dao.
+//-----------Ma tran nghich dao.----------------------------------------
 //Dua tren ma tran phu hop.
 Matrix Matrix::InverseMatrix()
 {
@@ -300,11 +294,49 @@ Matrix Matrix::InverseMatrix()
 	}
 }
 
-//Giai he phuong trinh tuyen tinh.
+
+//------------Nhan hai ma tran.-----------------------------------------
+Matrix Matrix::MultiplyMatrix(const Matrix &b)
+{
+	//Khoi tao ma tran luu giu ket qua.
+	Matrix c(m, b.n);
+	for (int i = 0; i < m; i++)//Duyet tung dong trong phan tu moi.
+		for (int j = 0; j < b.n; j++)//Duyet tung cot.
+			for (int k = 0; k < n; k++)//Duyet so luong phan tu tren dong i, cot j.
+				//Gia tri tai vi tri can tinh bang tong tung phan tu tren hang nhan voi cot kia.
+				c.a[i][j] += a[i][k] * b.a[k][j];
+	return c;//Tra ve ma tran can tinh.
+}
+
+
+//------------Hang ma tran.---------------------------------------------
+int Matrix::RankMatrix()
+{
+	Matrix c;
+	c = this->EchelonMatrix();//Gan mang de khong lam thay doi cac gia tri trong mang.
+
+	int count = 0;//Bien de tinh hang ma tran.
+	for (int i = 0; i < m; i++)//Duyet tung dong.
+	{
+		//Kiem tra dong nao khac 0.
+		bool t = false;//Gan cho dong do deu bang 0.
+		for (int j = 0; j < n; j++)//duyet tung phan tu tren dong.
+			//Neu co gia tri khac 0 se gan t=true.
+			if (c.a[i][j] != 0)
+				t = true;
+		//Neu khac 0 thi tang bien dem count.
+		if (t == true)
+			count++;
+	}
+	return count;//Tra ve hang  cua ma tran.
+}
+
+
+//----------Giai he phuong trinh tuyen tinh.----------------------------
 //-1: He pt vo nghiem.
 // 0: He pt co nghiem duy nhat.
 // 1: He co vo so nghiem.
-int Matrix::EquationMatrix()
+int Matrix::SolveLinearEquationMatrix()
 {
 	Matrix b(m, n - 1);//Ma tran de luu gia tri mang con.
 	//Sao chep phan tu vao mang con.
@@ -315,7 +347,9 @@ int Matrix::EquationMatrix()
 	int rankB = b.RankMatrix();
 	//Tim hang ma tran A|B
 	int rankA = this->RankMatrix();
-
+	cout << endl;
+	this->PrintArray();
+	cout << endl;
 	//Kiem tra dieu kien he phuong trinh vo nghiem.
 	if (rankA == rankB + 1)
 		return -1;
@@ -323,7 +357,7 @@ int Matrix::EquationMatrix()
 	if (rankB == rankA)
 		if (rankB == n - 1)
 		{
-			//this->PrintArray();
+
 			Matrix temp(1, n - 1);//Khoi tao ma tran ket qua.
 			for (int i = rankA - 1; i >= 0; i--)
 			{
@@ -360,15 +394,14 @@ int Matrix::EquationMatrix()
 				for (int i = n - 2; i > n - 2 - an; i--)
 				{
 					temp[i].vec[n - 2 - i + 1] = 1;
-					if (temp[i].vec[0] != 0)
-					{
-						cout << "x" << i + 1 << " = :";
-						cout << temp[i].vec[0];
-					}
+					cout << "x" << i + 1 << " = :";
+					cout << temp[i].vec[0];
+
 					//In ra nghiem
 					for (int j = 1; j < temp[i].n; j++)
 						if (temp[i].vec[j] != 0)
 							cout << " + " << temp[i].vec[j] << "t" << j;
+					cout << endl;
 				}
 				//tim nghiem cua nhung dong khac 0
 				for (int i = rankA - 1; i >= 0; i--)
@@ -381,7 +414,7 @@ int Matrix::EquationMatrix()
 					for (int k = n - 2; k > i; k--)
 						t = SubVector(t, MultiplyVector(temp[k], a[i][k]));
 					temp[i] = DivideVector(t, a[i][i]);//tinh nghiem gan vao ma tran ket qua.
-					cout << endl;
+					//cout << endl;
 					//in ra nghiem.
 					if (temp[i].vec[0] != 0)
 					{
@@ -391,6 +424,7 @@ int Matrix::EquationMatrix()
 					for (int j = 1; j < temp[i].n; j++)
 						if (temp[i].vec[j] != 0)
 							cout << " + " << temp[i].vec[j] << "t" << j;
+					cout << endl;
 				}
 				cout << endl;*/
 				return 1;
