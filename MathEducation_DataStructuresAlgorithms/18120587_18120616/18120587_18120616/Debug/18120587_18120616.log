@@ -1,0 +1,22 @@
+﻿  CBoole.cpp
+d:\matheducation_datastructuresalgorithms\18120587_18120616\18120587_18120616\cboole.cpp(54): warning C4018: '<': signed/unsigned mismatch
+d:\matheducation_datastructuresalgorithms\18120587_18120616\18120587_18120616\cboole.cpp(62): warning C4018: '<': signed/unsigned mismatch
+d:\matheducation_datastructuresalgorithms\18120587_18120616\18120587_18120616\cboole.cpp(69): warning C4101: 'i': unreferenced local variable
+d:\matheducation_datastructuresalgorithms\18120587_18120616\18120587_18120616\cboole.cpp(78): warning C4018: '<': signed/unsigned mismatch
+d:\matheducation_datastructuresalgorithms\18120587_18120616\18120587_18120616\cboole.cpp(99): warning C4018: '<': signed/unsigned mismatch
+d:\matheducation_datastructuresalgorithms\18120587_18120616\18120587_18120616\cboole.cpp(117): warning C4018: '<': signed/unsigned mismatch
+d:\matheducation_datastructuresalgorithms\18120587_18120616\18120587_18120616\cboole.cpp(254): warning C4101: 'i': unreferenced local variable
+d:\matheducation_datastructuresalgorithms\18120587_18120616\18120587_18120616\cboole.cpp(279): warning C4101: 'nBoole': unreferenced local variable
+d:\matheducation_datastructuresalgorithms\18120587_18120616\18120587_18120616\cboole.cpp(279): warning C4101: 'nBit': unreferenced local variable
+  CMatrix.cpp
+d:\matheducation_datastructuresalgorithms\18120587_18120616\18120587_18120616\cmatrix.cpp(170): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+d:\matheducation_datastructuresalgorithms\18120587_18120616\18120587_18120616\cmatrix.cpp(217): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+d:\matheducation_datastructuresalgorithms\18120587_18120616\18120587_18120616\cmatrix.cpp(289): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  CVector.cpp
+  Main.cpp
+d:\matheducation_datastructuresalgorithms\18120587_18120616\18120587_18120616\main.cpp(192): error C2248: 'Matrix::EchelonMatrix': cannot access private member declared in class 'Matrix'
+  d:\matheducation_datastructuresalgorithms\18120587_18120616\18120587_18120616\hmatrix.h(15): note: see declaration of 'Matrix::EchelonMatrix'
+  d:\matheducation_datastructuresalgorithms\18120587_18120616\18120587_18120616\hmatrix.h(8): note: see declaration of 'Matrix'
+  Generating Code...
+d:\matheducation_datastructuresalgorithms\18120587_18120616\18120587_18120616\cmatrix.cpp(295): warning C4715: 'Matrix::InverseMatrix': not all control paths return a value
+d:\matheducation_datastructuresalgorithms\18120587_18120616\18120587_18120616\cmatrix.cpp(433): warning C4715: 'Matrix::SolveLinearEquationMatrix': not all control paths return a value
