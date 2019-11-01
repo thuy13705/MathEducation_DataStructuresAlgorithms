@@ -15,7 +15,7 @@ struct Boole {
 	string note;	//de danh dau Boole da duoc dung roi hay chua
 };
 struct BooleArray {
-	Boole arrBoole[100];	//Mang Boole
+	Boole arrBoole[50];	//Mang Boole
 	int len;			//so luong Boole
 };
 void CreateArrDec(ArrDec& a);	//khoi tao ArrDec

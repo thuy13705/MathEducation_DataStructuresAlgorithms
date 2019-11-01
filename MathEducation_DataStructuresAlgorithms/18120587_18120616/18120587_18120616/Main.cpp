@@ -73,6 +73,8 @@ void VectorMenu()
 
 			cout << "Nhap so luong thanh phan cua 2 vecto: ";
 			cin >> n1;
+			system("cls");
+			cout << "Cong hai vector:" << endl;
 			InputVec(vec1, n1);
 			InputVec(vec2, n1);
 			OutputVec(AddVector(vec1, vec2));
@@ -85,9 +87,13 @@ void VectorMenu()
 			int n2;
 			cout << "Nhap so luong thanh phan cua vector: ";
 			cin >> n2;
-			InputVec(a, n2);
 			cout << "Nhap so thuc alpha: ";
 			cin >> alpha;
+
+			system("cls");
+			cout << "Nhan hai vector:" << endl;
+			InputVec(a, n2);
+			cout <<"alpha:"<< alpha << endl;
 			cout << "Ket qua: ";
 			OutputVec(MultiplyVector(a, alpha));
 			break;
@@ -128,6 +134,8 @@ void MatrixMenu()
 			cout << "Nhap ma tran: " << endl;
 			A.GetArray();
 
+			system("cls");
+			cout << "Dinh thuc cua ma tran: " << endl;
 			cout << "Ma tran vua nhap:" << endl;
 			A.PrintArray();
 
@@ -146,6 +154,9 @@ void MatrixMenu()
 
 			cout << "Nhap ma tran: " << endl;
 			Inver.GetArray();
+
+			system("cls");
+			cout << "Tim ma tran nghich dao: " << endl;
 			cout << "Ma tran vua nhap:" << endl;
 			Inver.PrintArray();
 
@@ -164,23 +175,23 @@ void MatrixMenu()
 		case 3:
 		{
 			cout << "Nhan hai ma tran:" << endl;
-			Matrix Mt1;
 
+			Matrix Mt1;
 			cout << "Nhap ma tran thu nhat: " << endl;
 			Mt1.GetArray();
-			cout << "Ma tran vua nhap:" << endl;
-			Mt1.PrintArray();
 
 			Matrix Mt2;
-
 			cout << "Nhap ma tran thu hai: " << endl;
 			Mt2.GetArray();
+			system("cls");
+			cout << "Ma tran vua nhap:" << endl;
+			Mt1.PrintArray();
 			cout << "Ma tran vua nhap:" << endl;
 			Mt2.PrintArray();
 
 			cout << "Ket qua:" << endl;
 			if (Mt1.N() != Mt2.M())
-				cout << "Khong the thuc hien nhan ma tran.";
+				cout << "Khong the thuc hien nhan ma tran." << endl;
 			else
 				Mt1.MultiplyMatrix(Mt2).PrintArray();
 			//Mt1.~Matrix();
@@ -194,6 +205,9 @@ void MatrixMenu()
 
 			cout << "Nhap ma tran : " << endl;
 			rank.GetArray();
+
+			system("cls");
+			cout << "Tim hang cua ma tran: " << endl;
 			cout << "Ma tran vua nhap:" << endl;
 			rank.PrintArray();
 			cout << "Ma tran bac thang: " << endl;
@@ -210,6 +224,9 @@ void MatrixMenu()
 			cout << "so cot phai lon hon 1." << endl;
 			cout << "Nhap he phuong trinh can giai: " << endl;
 			hpt.GetArray();
+
+			system("cls");
+			cout << "Giai he phuong trinh tuyen tinh: " << endl;
 			cout << "He phuong trinh vua nhap :" << endl;
 			hpt.PrintArray();
 			int temp_hpt = hpt.SolveLinearEquationMatrix();

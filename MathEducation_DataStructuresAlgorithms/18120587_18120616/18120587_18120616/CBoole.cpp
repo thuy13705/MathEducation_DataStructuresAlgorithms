@@ -18,7 +18,7 @@ void CreateBoole(Boole& a) {
 //khoi tao BooleArray a
 void CreateBooleArray(BooleArray& a) {
 	a.len = 0;
-	for (int i = 0; i < 100; i++) {
+	for (int i = 0; i < 50; i++) {
 		CreateBoole(a.arrBoole[i]);
 	}
 }
@@ -68,6 +68,7 @@ void StandardString(string& s) {
 void InputString(string& s) {
 	int i;
 	cout << "Nhap ham boole (cac ki tu a b c d, '+' de phan cach bieu thuc, in hoa de KHANG DINH, viet thuong de phu dinh):\n";
+	cin.ignore();
 	getline(cin, s);
 	StandardString(s);	//chuan hoa chuoi, xoa het cac khoang cach, dau '+' du
 }
