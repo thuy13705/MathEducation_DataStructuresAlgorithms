@@ -77,20 +77,27 @@ void VectorMenu()
 
 			cout << "Nhap so luong thanh phan cua 2 vecto: ";
 			cin >> n1;
+			system("cls");
 			cout << "Cong hai vector:" << endl;
 			InputVec(vec1, n1);
 			InputVec(vec2, n1);
 			OutputVec(AddVector(vec1, vec2));
 			break;
 		case 2:
+			cout << "Nhan hai vector:" << endl;
+
 			Vector a;
 			float alpha;
 			int n2;
 			cout << "Nhap so luong thanh phan cua vector: ";
 			cin >> n2;
-			InputVec(a, n2);
 			cout << "Nhap so thuc alpha: ";
-			cin >> alpha;	
+			cin >> alpha;
+
+			system("cls");
+			cout << "Nhan hai vector:" << endl;
+			InputVec(a, n2);
+			cout << "alpha:" << alpha << endl;
 			cout << "Ket qua: ";
 			OutputVec(MultiplyVector(a, alpha));
 			break;
