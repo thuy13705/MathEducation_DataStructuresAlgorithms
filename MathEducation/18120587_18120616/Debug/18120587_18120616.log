@@ -1,0 +1,10 @@
+﻿  CBoole.cpp
+d:\matheducation\18120587_18120616\cboole.cpp(54): warning C4018: '<': signed/unsigned mismatch
+d:\matheducation\18120587_18120616\cboole.cpp(62): warning C4018: '<': signed/unsigned mismatch
+d:\matheducation\18120587_18120616\cboole.cpp(78): warning C4018: '<': signed/unsigned mismatch
+d:\matheducation\18120587_18120616\cboole.cpp(99): warning C4018: '<': signed/unsigned mismatch
+d:\matheducation\18120587_18120616\cboole.cpp(117): warning C4018: '<': signed/unsigned mismatch
+d:\matheducation\18120587_18120616\cboole.cpp(254): warning C4101: 'i': unreferenced local variable
+d:\matheducation\18120587_18120616\cboole.cpp(279): warning C4101: 'nBoole': unreferenced local variable
+d:\matheducation\18120587_18120616\cboole.cpp(279): warning C4101: 'nBit': unreferenced local variable
+  18120587_18120616.vcxproj -> D:\MathEducation\Debug\18120587_18120616.exe
